@@ -12,7 +12,7 @@ class AShift < Shift
     @date_shift_all[0]
   end
 
-  # def shift_value
-  #   require "pry"; binding.pry
-  # end
+  def shift_value
+    key_shift.to_i + date_shift.to_i
+  end
 end

@@ -31,6 +31,6 @@ class AShiftTest < Minitest::Test
     main_shift.stubs(:generate_key).returns("12345")
     main_shift.stubs(:date).returns("091920")
 
-    # assert_equal 18, a_shift.shift_value
+    assert_equal 18, a_shift.shift_value
   end
 end
