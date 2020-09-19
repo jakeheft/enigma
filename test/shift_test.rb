@@ -35,6 +35,6 @@ class ShiftTest < Minitest::Test
     assert_equal 6, main_shift.date.length
 
     main_shift.stubs(:date).returns("091920")
-    assert_equal "6400", main_shift.date_shift
+    assert_equal "6400", main_shift.date_shift_all
   end
 end

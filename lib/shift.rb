@@ -11,7 +11,7 @@ class Shift
     @key ||= "%05d" % rand(100000)
   end
 
-  def date_shift
+  def date_shift_all
     date_squared = (@date.to_i ** 2).to_s
     @date_shift = (date_squared[-4..-1])
   end
