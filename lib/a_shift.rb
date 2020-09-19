@@ -1,0 +1,2 @@
+class AShift < Shift
+end
