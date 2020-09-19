@@ -15,4 +15,16 @@ class ShiftTest < Minitest::Test
     assert_equal " ", main_shift.alpha[26]
     assert_nil main_shift.alpha[28]
   end
+
+  def test_it_can_generate_a_5_digit_key_that_will_not_change
+    main_shift = Shift.new
+
+    assert_equal 5, main_shift.key.count
+
+    expected = main_shift.key
+
+    main_shift.generate_key
+
+    assert_equal expected, main_shift.key
+  end
 end
