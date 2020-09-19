@@ -26,4 +26,13 @@ class ShiftTest < Minitest::Test
 
     assert_equal expected, main_shift.key
   end
+### PUT IN A TEST FOR PULLING THE DATE WHEN YOU'VE FIGURED IT OUT
+  def test_it_can_get_the_date_for_the_shift
+    main_shift = Shift.new
+
+    assert_equal 6, main_shift.date.length
+
+    main_shift.stubs(:date).returns("091920")
+    assert_equal "6400", main_shift.date_shift
+  end
 end
