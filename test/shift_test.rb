@@ -1,11 +1,21 @@
 require './test/test_helper'
 require './lib/shift'
+require './lib/a_shift'
 
 class ShiftTest < Minitest::Test
   def test_it_exists
     main_shift = Shift.new
 
     assert_instance_of Shift, main_shift
+  end
+
+  def test_it_instantiates_each_shift_letter_object
+    main_shift = Shift.new
+
+    assert_instance_of AShift, main_shift.a_shift
+    # assert_instance_of BShift, b_shift
+    # assert_instance_of CShift, c_shift
+    # assert_instance_of DShift, d_shift
   end
 
   def test_it_has_an_alphabet_that_can_be_called_on
