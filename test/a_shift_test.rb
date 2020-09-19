@@ -14,7 +14,7 @@ class AShiftTest < Minitest::Test
     main_shift = Shift.new("12345", "091920")
     a_shift = AShift.new("12345", "091920")
 
-    assert_equal "09", a_shift.key_shift
+    assert_equal "12", a_shift.key_shift
   end
 
   def test_it_can_get_shift_value
