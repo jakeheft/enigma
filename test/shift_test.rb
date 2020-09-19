@@ -4,6 +4,8 @@ require './lib/shift'
 class ShiftTest < Minitest::Test
   def test_it_exists
     main_shift = Shift.new
+
+    assert_instance_of Shift, main_shift
   end
 
   def test_it_has_an_alphabet_that_can_be_called_on
