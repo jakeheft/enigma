@@ -47,4 +47,6 @@ class ShiftTest < Minitest::Test
     main_shift.stubs(:date).returns("091920")
     assert_equal "6400", main_shift.date_shift_all
   end
+
+  ### When all letter shifts built, create collection with each so they can be run through enumerable
 end
