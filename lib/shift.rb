@@ -13,6 +13,6 @@ class Shift
 
   def date_shift
     date_squared = (@date.to_i ** 2).to_s
-    date_squared[-4..-1]
+    @date_shift = (date_squared[-4..-1]).to_i
   end
 end
