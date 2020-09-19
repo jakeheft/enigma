@@ -33,4 +33,12 @@ class AShiftTest < Minitest::Test
 
     assert_equal 18, a_shift.shift_value
   end
+
+  def test_it_can_get_shifted_alphabet
+    main_shift = Shift.new("12345", "091920")
+    a_shift = AShift.new("12345", "6400")
+
+    expected = ["s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r"]
+    assert_equal expected, a_shift.shifted_alpha
+  end
 end
