@@ -21,8 +21,6 @@ class AShift < Shift
   end
 
   def run_shift
-    @incoming_chars.map do |char|
-      @shifted_alpha[char[1]]
-    end
+    @incoming_chars.map { |char| @shifted_alpha[char[1]] }
   end
 end
