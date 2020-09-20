@@ -1,2 +1,10 @@
 require 'simplecov'
 SimpleCov.start
+require 'minitest/autorun'
+require 'minitest/pride'
+require 'mocha/minitest'
+require './lib/shift'
+require './lib/a_shift'
+require './lib/b_shift'
+require './lib/c_shift'
+require './lib/d_shift'
