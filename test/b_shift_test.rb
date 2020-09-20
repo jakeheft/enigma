@@ -13,4 +13,8 @@ class BShiftTest < Minitest::Test
   def test_it_can_get_its_key_shift
     assert_equal "23", @b_shift.key_shift
   end
+
+  def test_it_can_get_its_date_shift
+    assert_equal "4", @b_shift.date_shift
+  end
 end
