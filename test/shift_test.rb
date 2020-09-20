@@ -52,6 +52,15 @@ class ShiftTest < Minitest::Test
     assert_equal "6400", main_shift.date_shift_all
   end
   ### When all letter shifts built, create collection with each so they can be run through enumerable
+  def test_it_can_pair_characters_with_values
+    main_shift = Shift.new("hello world")
+
+    # look at how to return the position of a letter in an array (find_index(obj))
+    # run a map that creates an array of arrays with letter in 0 index and letter-index at 1 index
+    # then inside each subclass, you will use that index and just pull the value that exists at the index
+    expected = ["a", 0]
+    assert_equal expected, main_shift.char_values[0]
+  end
 
   def test_it_can_route_a_string_to_proper_shift_subclasses
     main_shift = Shift.new("hello world")
@@ -63,4 +72,5 @@ class ShiftTest < Minitest::Test
     assert_equal ["l", "w", "d"], main_shift.c_shift.incoming_chars
     assert_equal ["l", "o"], main_shift.d_shift.incoming_chars
   end
+
 end
