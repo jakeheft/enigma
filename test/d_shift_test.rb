@@ -2,7 +2,7 @@ require './test/test_helper'
 
 class DShiftTest < Minitest::Test
   def setup
-    @main_shift = Shift.new("12345", "091920")
+    @main_shift = Shift.new("hello world", "12345", "091920")
     @d_shift = @main_shift.d_shift
   end
 
@@ -30,5 +30,13 @@ class DShiftTest < Minitest::Test
 
     assert_equal expected, @d_shift.shift_alphabet
     assert_equal expected, @d_shift.shifted_alpha
+  end
+
+  def test_it_can_get_incoming_characters
+    assert_equal [], @d_shift.incoming_chars
+
+    @main_shift.disperse_message
+
+    assert_equal ["l", "o"], @d_shift.incoming_chars
   end
 end
