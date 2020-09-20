@@ -42,7 +42,7 @@ class CShiftTest < Minitest::Test
 
   def test_it_can_run_its_shift
     @main_shift.disperse_message
-# require "pry"; binding.pry
+
     assert_equal ["s", "c", "k"], @c_shift.run_shift
   end
 end

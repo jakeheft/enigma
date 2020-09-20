@@ -18,8 +18,4 @@ class BShift < Shift
   def date_shift
     @date_shift_all[1]
   end
-
-  def run_shift
-    @incoming_chars.map { |char| @shifted_alpha[char[1]] }
-  end
 end
