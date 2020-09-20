@@ -37,6 +37,6 @@ class BShiftTest < Minitest::Test
 
     @main_shift.disperse_message
 
-    assert_equal ["e", " ", "l"], @b_shift.incoming_chars
+    assert_equal [["e", 4], [" ", 26], ["l", 11]], @b_shift.incoming_chars
   end
 end

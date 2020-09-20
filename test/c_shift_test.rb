@@ -37,6 +37,6 @@ class CShiftTest < Minitest::Test
 
     @main_shift.disperse_message
 
-    assert_equal ["l", "w", "d"], @c_shift.incoming_chars
+    assert_equal [["l", 11], ["w", 22], ["d", 3]], @c_shift.incoming_chars
   end
 end
