@@ -18,4 +18,11 @@ class CShiftTest < Minitest::Test
     assert_equal "0", @c_shift.date_shift
   end
 
+  def test_it_can_get_shift_value
+    @main_shift.stubs(:generate_key).returns("12345")
+    @main_shift.stubs(:date).returns("091920")
+
+    assert_equal 34, @c_shift.shift_value
+  end
+
 end
