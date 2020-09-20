@@ -7,4 +7,8 @@ class BShift < Shift
   def key_shift
     @key[1..2]
   end
+
+  def date_shift
+    @date_shift_all[1]
+  end
 end
