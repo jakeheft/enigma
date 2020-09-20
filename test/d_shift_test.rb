@@ -14,4 +14,8 @@ class DShiftTest < Minitest::Test
     assert_equal "45", @d_shift.key_shift
   end
 
+  def test_it_can_get_its_date_shift
+    assert_equal "0", @d_shift.date_shift
+  end
+
 end
