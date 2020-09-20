@@ -6,4 +6,8 @@ class DShiftTest < Minitest::Test
     @d_shift = @main_shift.d_shift
   end
 
+  def test_it_exists
+    assert_instance_of DShift, @d_shift
+  end
+
 end
