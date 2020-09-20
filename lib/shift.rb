@@ -1,5 +1,5 @@
 class Shift
-  attr_reader :alpha, :key, :date, :a_shift, :b_shift, :c_shift#, :d_shift
+  attr_reader :alpha, :key, :date, :a_shift, :b_shift, :c_shift, :d_shift
   ### FIGURE OUT HOW TO INCORPORATE TODAYS DATE
   def initialize(key = generate_key, date = "091920")
     @alpha = ("a".."z").to_a << " "
@@ -8,7 +8,7 @@ class Shift
     @a_shift = AShift.new(@key, date_shift_all)
     @b_shift = BShift.new(@key, date_shift_all)
     @c_shift = CShift.new(@key, date_shift_all)
-    # @d_shift = DShift.new(@key, date_shift_all)
+    @d_shift = DShift.new(@key, date_shift_all)
   end
 
   def generate_key
