@@ -14,4 +14,8 @@ class CShiftTest < Minitest::Test
     assert_equal "34", @c_shift.key_shift
   end
 
+  def test_it_can_get_its_date_shift
+    assert_equal "0", @c_shift.date_shift
+  end
+
 end
