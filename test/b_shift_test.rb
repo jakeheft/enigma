@@ -9,4 +9,8 @@ class BShiftTest < Minitest::Test
   def test_it_exists
     assert_instance_of BShift, @b_shift
   end
+
+  def test_it_can_get_its_key_shift
+    assert_equal "23", @b_shift.key_shift
+  end
 end
