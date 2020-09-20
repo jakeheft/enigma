@@ -58,14 +58,14 @@ class ShiftTest < Minitest::Test
   end
   ### When all letter shifts built, create collection with each so they can be run through enumerable
 
-  # def test_it_can_route_a_string_to_proper_shift_subclasses
-  #   main_shift = Shift.new("hello world")
-  #
-  #   main_shift.disburse_message
-  #
-  #   assert_equal ["h", "o", "r"], main_shift.a_shift.incoming_chars
-  #   assert_equal ["e", " ", "l"], main_shift.b_shift.incoming_chars
-  #   assert_equal ["l", "w", "d"], main_shift.c_shift.incoming_chars
-  #   assert_equal ["l", "o"], main_shift.d_shift.incoming_chars
-  # end
+  def test_it_can_route_a_string_to_proper_shift_subclasses
+    main_shift = Shift.new("hello world")
+
+    main_shift.disburse_message
+
+    assert_equal ["h", "o", "r"], main_shift.a_shift.incoming_chars
+    assert_equal ["e", " ", "l"], main_shift.b_shift.incoming_chars
+    assert_equal ["l", "w", "d"], main_shift.c_shift.incoming_chars
+    assert_equal ["l", "o"], main_shift.d_shift.incoming_chars
+  end
 end
