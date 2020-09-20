@@ -73,4 +73,11 @@ class ShiftTest < Minitest::Test
     assert_equal [["l", 11], ["o", 14]], main_shift.d_shift.incoming_chars
   end
 
+  def test_it_can_run_all_shifts
+    main_shift = Shift.new("hello world")
+  
+    expected = ["z", "e", "s", "c", "f", " ", "c", "f", "i", "l", "k"]
+    assert_equal expected, main_shift.run_shift
+  end
+
 end
