@@ -9,7 +9,7 @@ class AShift < Shift
     @date_shift_all = date_shift_all
     @shifted_alpha = shift_alphabet
   end
-  # does key_shift need to go in shift class and have each sub class pull from that method and input what parts it needs?
+
   def key_shift
     @key[0..1]
   end
