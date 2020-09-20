@@ -1,4 +1,7 @@
+require_relative './shiftable'
+
 class AShift < Shift
+  include Shiftable
   attr_reader :shifted_alpha
 
   def initialize(key, date_shift_all)
@@ -13,13 +16,5 @@ class AShift < Shift
 
   def date_shift
     @date_shift_all[0]
-  end
-
-  def shift_value
-    key_shift.to_i + date_shift.to_i
-  end
-
-  def shift_alphabet
-    (("a".."z").to_a << " ").rotate(shift_value)
   end
 end

@@ -46,5 +46,14 @@ class ShiftTest < Minitest::Test
     assert_equal "6400", main_shift.date_shift_all
   end
 
+  def test_it_can_get_shift_value
+    main_shift = Shift.new
+
+    main_shift.stubs(:generate_key).returns("12345")
+    main_shift.stubs(:date).returns("091920")
+
+    assert_equal 18, main_shift.shift_value
+  end
+
   ### When all letter shifts built, create collection with each so they can be run through enumerable
 end
