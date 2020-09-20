@@ -39,4 +39,10 @@ class DShiftTest < Minitest::Test
 
     assert_equal [["l", 11], ["o", 14]], @d_shift.incoming_chars
   end
+
+  def test_it_can_run_its_shift
+    @main_shift.disperse_message
+
+    assert_equal ["c", "f"], @d_shift.run_shift
+  end
 end
