@@ -8,4 +8,7 @@ class BShiftTest < Minitest::Test
     @b_shift = @main_shift.b_shift
   end
 
+  def test_it_exists
+    assert_instance_of BShift, @b_shift
+  end
 end
