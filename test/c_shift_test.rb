@@ -10,4 +10,8 @@ class CShiftTest < Minitest::Test
     assert_instance_of CShift, @c_shift
   end
 
+  def test_it_can_get_its_key_shift
+    assert_equal "34", @c_shift.key_shift
+  end
+
 end
