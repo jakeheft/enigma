@@ -25,4 +25,10 @@ class CShiftTest < Minitest::Test
     assert_equal 34, @c_shift.shift_value
   end
 
+  def test_it_can_get_shifted_alphabet
+    expected =
+
+    assert_equal expected, @c_shift.shift_alphabet
+    assert_equal expected, @c_shift.shifted_alpha
+  end
 end
