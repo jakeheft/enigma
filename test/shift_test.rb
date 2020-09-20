@@ -58,7 +58,7 @@ class ShiftTest < Minitest::Test
     # look at how to return the position of a letter in an array (find_index(obj))
     # run a map that creates an array of arrays with letter in 0 index and letter-index at 1 index
     # then inside each subclass, you will use that index and just pull the value that exists at the index
-    expected = ["a", 0]
+    expected = ["h", 7]
     assert_equal expected, main_shift.char_values[0]
   end
 
@@ -67,10 +67,10 @@ class ShiftTest < Minitest::Test
 
     main_shift.disperse_message
 
-    assert_equal ["h", "o", "r"], main_shift.a_shift.incoming_chars
-    assert_equal ["e", " ", "l"], main_shift.b_shift.incoming_chars
-    assert_equal ["l", "w", "d"], main_shift.c_shift.incoming_chars
-    assert_equal ["l", "o"], main_shift.d_shift.incoming_chars
+    assert_equal [["h", 7], ["o", 14], ["r", 17]], main_shift.a_shift.incoming_chars
+    assert_equal [["e", 4], [" ", 26], ["l", 11]], main_shift.b_shift.incoming_chars
+    assert_equal [["l", 11], ["w", 22], ["d", 3]], main_shift.c_shift.incoming_chars
+    assert_equal [["l", 11], ["o", 14]], main_shift.d_shift.incoming_chars
   end
 
 end

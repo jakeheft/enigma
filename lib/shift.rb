@@ -20,14 +20,22 @@ class Shift
     date_squared = (@date.to_i ** 2).to_s
     @date_shift = (date_squared[-4..-1])
   end
+  ### before dispersing, need to check for special characters, document position and then remove them. Build this as a helper method, then call that method inside disperse_message
+
+  def char_values
+    separated_characters = @message.chars
+    test = separated_characters.map do |character|
+      [character] << @alpha.find_index(character)
+    end
+  end
 
   def disperse_message
-    separated_characters = @message.chars
-    until separated_characters.empty?
-      (@a_shift.incoming_chars << separated_characters.shift).compact!
-      (@b_shift.incoming_chars << separated_characters.shift).compact!
-      (@c_shift.incoming_chars << separated_characters.shift).compact!
-      (@d_shift.incoming_chars << separated_characters.shift).compact!
+    chars_with_values = char_values
+    until chars_with_values.empty?
+      (@a_shift.incoming_chars << chars_with_values.shift).compact!
+      (@b_shift.incoming_chars << chars_with_values.shift).compact!
+      (@c_shift.incoming_chars << chars_with_values.shift).compact!
+      (@d_shift.incoming_chars << chars_with_values.shift).compact!
     end
   end
 end
