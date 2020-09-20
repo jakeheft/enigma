@@ -11,4 +11,8 @@ class DShift < Shift
   def key_shift
     @key[3..4]
   end
+
+  def date_shift
+    @date_shift_all[3]
+  end
 end
