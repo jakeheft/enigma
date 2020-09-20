@@ -2,15 +2,13 @@ require './test/test_helper'
 
 class ShiftTest < Minitest::Test
   def test_it_exists
-    skip
-    main_shift = Shift.new
+    main_shift = Shift.new("hello world")
 
     assert_instance_of Shift, main_shift
   end
 
   def test_it_instantiates_each_shift_letter_object
-    skip
-    main_shift = Shift.new
+    main_shift = Shift.new("hello world")
 
     assert_instance_of AShift, main_shift.a_shift
     assert_instance_of BShift, main_shift.b_shift
@@ -19,8 +17,7 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_has_an_alphabet_that_can_be_called_on
-    skip
-    main_shift = Shift.new
+    main_shift = Shift.new("hello world")
 
     expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
     assert_equal expected, main_shift.alpha
@@ -36,8 +33,7 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_can_generate_a_5_digit_key_that_will_not_change
-    skip
-    main_shift = Shift.new
+    main_shift = Shift.new("hello world")
     expected = main_shift.key
 
     assert_equal 5, main_shift.key.length
@@ -48,8 +44,7 @@ class ShiftTest < Minitest::Test
   end
 ### PUT IN A TEST FOR PULLING THE DATE WHEN YOU'VE FIGURED IT OUT
   def test_it_can_get_the_date_for_the_shift
-    skip
-    main_shift = Shift.new
+    main_shift = Shift.new("hello world")
 
     assert_equal 6, main_shift.date.length
 
@@ -61,7 +56,7 @@ class ShiftTest < Minitest::Test
   def test_it_can_route_a_string_to_proper_shift_subclasses
     main_shift = Shift.new("hello world")
 
-    main_shift.disburse_message
+    main_shift.disperse_message
 
     assert_equal ["h", "o", "r"], main_shift.a_shift.incoming_chars
     assert_equal ["e", " ", "l"], main_shift.b_shift.incoming_chars

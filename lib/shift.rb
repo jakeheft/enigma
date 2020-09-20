@@ -20,4 +20,14 @@ class Shift
     date_squared = (@date.to_i ** 2).to_s
     @date_shift = (date_squared[-4..-1])
   end
+
+  def disperse_message
+    separated_characters = @message.chars
+    until separated_characters.empty?
+      (@a_shift.incoming_chars << separated_characters.shift).compact!
+      (@b_shift.incoming_chars << separated_characters.shift).compact!
+      (@c_shift.incoming_chars << separated_characters.shift).compact!
+      (@d_shift.incoming_chars << separated_characters.shift).compact!
+    end
+  end
 end
