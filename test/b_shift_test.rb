@@ -1,6 +1,4 @@
 require './test/test_helper'
-require './lib/shift'
-require './lib/b_shift'
 
 class BShiftTest < Minitest::Test
   def setup

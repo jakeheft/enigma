@@ -1,6 +1,4 @@
 require './test/test_helper'
-require './lib/shift'
-require './lib/a_shift'
 
 class AShiftTest < Minitest::Test
   def setup
