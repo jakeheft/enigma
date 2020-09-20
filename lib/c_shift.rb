@@ -8,4 +8,8 @@ class CShift < Shift
     @date_shift_all = date_shift_all
   end
 
+  def key_shift
+    @key[2..3]
+  end
+
 end
