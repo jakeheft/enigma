@@ -13,7 +13,7 @@ class ShiftTest < Minitest::Test
     assert_instance_of AShift, main_shift.a_shift
     assert_instance_of BShift, main_shift.b_shift
     assert_instance_of CShift, main_shift.c_shift
-    # assert_instance_of DShift, main_shift.d_shift
+    assert_instance_of DShift, main_shift.d_shift
   end
 
   def test_it_has_an_alphabet_that_can_be_called_on
