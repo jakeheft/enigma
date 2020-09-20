@@ -10,4 +10,8 @@ class DShiftTest < Minitest::Test
     assert_instance_of DShift, @d_shift
   end
 
+  def test_it_can_get_its_key_shift
+    assert_equal "45", @d_shift.key_shift
+  end
+
 end
