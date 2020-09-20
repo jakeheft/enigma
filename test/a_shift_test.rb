@@ -35,7 +35,7 @@ class AShiftTest < Minitest::Test
   def test_it_can_get_incoming_characters
     assert_equal [], @a_shift.incoming_chars
 
-    @main_shift.disperse_message#stubs(:disperse_message).returns(["h", "o", "r"])
+    @main_shift.disperse_message
 
     assert_equal ["h", "o", "r"], @a_shift.incoming_chars
   end
