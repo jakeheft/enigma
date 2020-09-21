@@ -5,7 +5,6 @@ class Enigma
     @message = message
     @key = key
     @date = date
-    require "pry"; binding.pry
     @main_shift = Shift.new(@message, @key)
   end
 

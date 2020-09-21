@@ -6,7 +6,6 @@ class Shift
     @message = message
     @key = key
     @date = date
-    require "pry"; binding.pry
     @a_shift = AShift.new(@key, date_shift_all)
     @b_shift = BShift.new(@key, date_shift_all)
     @c_shift = CShift.new(@key, date_shift_all)
