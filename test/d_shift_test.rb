@@ -44,5 +44,6 @@ class DShiftTest < Minitest::Test
     @main_shift.disperse_message
 
     assert_equal ["c", "f"], @d_shift.run_shift
+    assert_equal ["c", "f"], @d_shift.outgoing_chars
   end
 end
