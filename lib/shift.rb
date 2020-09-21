@@ -1,5 +1,5 @@
 class Shift
-  attr_reader :alpha, :message, :key, :date, :a_shift, :b_shift, :c_shift, :d_shift
+  attr_reader :alpha, :message, :key, :date, :a_shift, :b_shift, :c_shift, :d_shift, :ciphertext
   ### FIGURE OUT HOW TO INCORPORATE TODAYS DATE
   def initialize(message, key = generate_key, date = "091920")
     @alpha = ("a".."z").to_a << " "
@@ -11,6 +11,7 @@ class Shift
     @c_shift = CShift.new(@key, date_shift_all)
     @d_shift = DShift.new(@key, date_shift_all)
     @char_counter = 0
+    @ciphertext = ""
   end
 
   def generate_key
@@ -55,6 +56,6 @@ class Shift
       shifted_chars << @c_shift.outgoing_chars.shift
       shifted_chars << @d_shift.outgoing_chars.shift
     end
-    shifted_chars.compact
+    @ciphertext = shifted_chars.compact.join
   end
 end

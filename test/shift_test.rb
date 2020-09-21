@@ -87,19 +87,13 @@ class ShiftTest < Minitest::Test
 
   def test_it_can_compile_shift_results
     main_shift = Shift.new("hello world", "12345", "091920")
+
+    assert_equal "", main_shift.ciphertext
+    
     main_shift.disperse_message
     main_shift.run_shifts  ###??? (should this be done by the other method?)
 
-    expected = ["z", "e", "s", "c", "f", " ", "c", "f", "i", "l", "k"]
-    assert_equal expected, main_shift.compile_shifts
-  end
-
-  def test_it_can_produce_an_encryption
-    main_shift = Shift.new("hello world", "12345", "091920")
-    main_shift.disperse_message
-    main_shift.run_shifts
-
+    assert_equal "zescf cfilk", main_shift.compile_shifts
     assert_equal "zescf cfilk", main_shift.ciphertext
   end
-
 end
