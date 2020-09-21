@@ -3,6 +3,7 @@ SimpleCov.start
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'mocha/minitest'
+require './lib/enigma'
 require './lib/shift'
 require './lib/a_shift'
 require './lib/b_shift'
