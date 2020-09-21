@@ -17,6 +17,7 @@ class Enigma
     @main_shift.disperse_message
     @main_shift.run_shifts
     @encryption = @main_shift.compile_shifts
+    @main_shift.reinsert_special_chars
     {encryption: @main_shift.ciphertext, key: @key, date: @date}
   end
 end
