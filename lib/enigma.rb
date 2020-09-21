@@ -1,7 +1,7 @@
 class Enigma
   attr_reader :message, :key, :date
 
-  def initialize(message, key = generate_key)# date)
+  def initialize(message, key = generate_key, date)
     @message = message
     @key = key
     @date = date
@@ -10,5 +10,16 @@ class Enigma
 
   def generate_key
     @key ||= "%05d" % rand(100000)
+  end
+
+  def encrypt(message, key, date)
+    @main_shift.disperse_message
+    @main_shift.run_shifts
+    @main_shift.compile_shifts
+    encrypt = {
+      encryption: @main_shift.ciphertext,
+      key: @key,
+      date: @date
+    }
   end
 end
