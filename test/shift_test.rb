@@ -80,9 +80,9 @@ class ShiftTest < Minitest::Test
     main_shift.run_shifts
 
     assert_equal ["z", "f", "i"], main_shift.a_shift.outgoing_chars
-    # assert_equal ["e", " ", "l"], main_shift.b_shift.outgoing_chars
-    # assert_equal ["s", "c", "k"], main_shift.c_shift.outgoing_chars
-    # assert_equal ["c", "f"], main_shift.d_shift.outgoing_chars
+    assert_equal ["e", " ", "l"], main_shift.b_shift.outgoing_chars
+    assert_equal ["s", "c", "k"], main_shift.c_shift.outgoing_chars
+    assert_equal ["c", "f"], main_shift.d_shift.outgoing_chars
   end
 
   def test_it_can_#run_all_shifts
