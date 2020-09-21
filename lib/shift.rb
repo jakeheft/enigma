@@ -25,12 +25,10 @@ class Shift
   end
 
   def stash_special_chars
-    counter = 0
     @message.chars.each do |char|
       if !@alpha.include?(char)
-        @special_chars << [char, counter]
+        @special_chars << [char, @message.index(char)]
       end
-      counter += 1
     end
     @message.chars.select { |char| @alpha.include?(char) }
   end
