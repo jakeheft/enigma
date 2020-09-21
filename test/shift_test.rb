@@ -85,13 +85,13 @@ class ShiftTest < Minitest::Test
     assert_equal ["c", "f"], main_shift.d_shift.outgoing_chars
   end
 
-  def test_it_can_#run_all_shifts
-    skip
+  def test_it_can_compile_shift_results
     main_shift = Shift.new("hello world", "12345", "091920")
     main_shift.disperse_message
+    main_shift.run_shifts  ###??? (should this be done by the other method?)
 
     expected = ["z", "e", "s", "c", "f", " ", "c", "f", "i", "l", "k"]
-    assert_equal expected, main_shift#.run_shifts
+    assert_equal expected, main_shift.compile_shifts
   end
 
 end
