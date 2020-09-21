@@ -36,8 +36,8 @@ class Shift
   end
 
   def char_values
-    stash_special_chars.map do |character|
-      [character] << @alpha.find_index(character)
+    stash_special_chars.map do |char|
+      [char] << @alpha.find_index(char)
     end
   end
 ### refactoring potential instead of calling each of these individually in disperse_message and run_shifts (and compile_shifts), set each subclass instance variable to an array and run an enumerable on them
