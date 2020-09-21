@@ -89,11 +89,17 @@ class ShiftTest < Minitest::Test
     main_shift = Shift.new("hello world", "12345", "091920")
 
     assert_equal "", main_shift.ciphertext
-    
+
     main_shift.disperse_message
     main_shift.run_shifts  ###??? (should this be done by the other method?)
 
     assert_equal "zescf cfilk", main_shift.compile_shifts
     assert_equal "zescf cfilk", main_shift.ciphertext
+  end
+
+  def test_it_can_pull_out_special_characters
+    main_shift = Shift.new("hello, world!", "12345", "091920")
+
+    assert_equal [[",", 5], ["!", 12]], main_shift.special_characters
   end
 end
