@@ -13,7 +13,7 @@ class Enigma
     @key ||= "%05d" % rand(100000)
   end
 
-  def encrypt(message, key, date)
+  def encrypt(message = @message, key = @key, date = @date)
     @main_shift.disperse_message
     @main_shift.run_shifts
     @encryption = @main_shift.compile_shifts
