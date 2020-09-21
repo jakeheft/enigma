@@ -7,13 +7,13 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, enigma
   end
 
-  # def test_it_has_attributes
-  #   enigma = Enigma.new
-  #
-  #   assert_equal "hello world", enigma.message
-  #   assert_equal "12345", enigma.key
-  #   assert_equal "091920", enigma.date
-  # end
+  def test_it_has_attributes
+    enigma = Enigma.new("hello world", "12345")
+
+    assert_equal "hello world", enigma.message
+    assert_equal "12345", enigma.key
+    # assert_equal "091920", enigma.date
+  end
 
   def test_it_can_generate_a_5_digit_key_that_will_not_change
     enigma = Enigma.new("hello world")
