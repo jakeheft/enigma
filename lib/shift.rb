@@ -1,7 +1,7 @@
 class Shift
   attr_reader :alpha, :special_chars, :message, :key, :date, :a_shift, :b_shift, :c_shift, :d_shift, :ciphertext
   ### FIGURE OUT HOW TO INCORPORATE TODAYS DATE
-  def initialize(message, key = generate_key, date = "091920")
+  def initialize(message, key, date = "091920")
     @alpha = ("a".."z").to_a << " "
     @special_chars = []
     @message = message
@@ -13,10 +13,6 @@ class Shift
     @d_shift = DShift.new(@key, date_shift_all)
     @char_counter = 0
     @ciphertext = ""
-  end
-
-  def generate_key
-    @key ||= "%05d" % rand(100000)
   end
 
   def date_shift_all
