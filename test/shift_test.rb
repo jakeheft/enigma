@@ -104,4 +104,10 @@ class ShiftTest < Minitest::Test
     assert_equal expected, main_shift.stash_special_chars
     assert_equal [[",", 5], ["!", 12]], main_shift.special_chars
   end
+
+  def test_it_can_add_special_characters_back_in
+    main_shift = Shift.new("hello, world!", "12345", "091920")
+
+    assert_equal "zescf, cfilk!", main_shift.reinsert_special_chars
+  end
 end
