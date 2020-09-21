@@ -30,7 +30,7 @@ class Shift
       [character] << @alpha.find_index(character)
     end
   end
-### refactoring potential instead of calling each of these individually in disperse_message and run_shifts, set each subclass instance variable to an array and run an enumerable on them
+### refactoring potential instead of calling each of these individually in disperse_message and run_shifts (and compile_shifts), set each subclass instance variable to an array and run an enumerable on them
   def disperse_message
     chars_with_values = char_values
     until chars_with_values.empty?
