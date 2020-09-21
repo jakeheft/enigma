@@ -46,4 +46,15 @@ class CShiftTest < Minitest::Test
     assert_equal ["s", "c", "k"], @c_shift.run_shift
     assert_equal ["s", "c", "k"], @c_shift.outgoing_chars
   end
+
+  def test_run_decrypt_shift
+    main_shift = Shift.new("zescf cfilk", "12345", "091920")
+    c_shift = main_shift.c_shift
+
+    main_shift.disperse_message
+
+    assert_equal [["s", 18], ["c", 2], ["k", 10]], c_shift.incoming_chars
+    assert_equal ["l", "w", "d"], c_shift.run_decrypt_shift
+    assert_equal ["l", "w", "d"], c_shift.outgoing_chars
+  end
 end
