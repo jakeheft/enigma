@@ -10,6 +10,7 @@ class Shift
     @b_shift = BShift.new(@key, date_shift_all)
     @c_shift = CShift.new(@key, date_shift_all)
     @d_shift = DShift.new(@key, date_shift_all)
+    @char_counter = 0
   end
 
   def generate_key
@@ -28,7 +29,7 @@ class Shift
       [character] << @alpha.find_index(character)
     end
   end
-
+### refactoring potential instead of calling each of these individually in disperse_message and run_shifts, set each subclass instance variable to an array and run an enumerable on them
   def disperse_message
     chars_with_values = char_values
     until chars_with_values.empty?
@@ -36,6 +37,23 @@ class Shift
       (@b_shift.incoming_chars << chars_with_values.shift).compact!
       (@c_shift.incoming_chars << chars_with_values.shift).compact!
       (@d_shift.incoming_chars << chars_with_values.shift).compact!
+      @char_counter += 1
     end
+    # require "pry"; binding.pry
   end
+
+  def run_shifts
+   [@a_shift, @b_shift, @c_shift, @d_shift].each do |shift|
+     shift.run_shift
+   end
+ end
+
+  # def run_shifts
+  #   shifted_chars = []
+  #   @char_counter.times do
+  #     require "pry"; binding.pry
+  #     shifted_chars << @a_shift.outgoing_chars.shift
+  #   end
+  #   shifted_chars
+  # end
 end
