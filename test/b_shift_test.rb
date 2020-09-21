@@ -2,7 +2,7 @@ require './test/test_helper'
 
 class BShiftTest < Minitest::Test
   def setup
-    @main_shift = Shift.new("12345", "091920")
+    @main_shift = Shift.new("hello world", "12345", "091920")
     @b_shift = @main_shift.b_shift
   end
 
@@ -27,8 +27,23 @@ class BShiftTest < Minitest::Test
 
   def test_it_can_get_shifted_alphabet
     expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
-    
+
     assert_equal expected, @b_shift.shift_alphabet
     assert_equal expected, @b_shift.shifted_alpha
+  end
+
+  def test_it_can_get_incoming_characters
+    assert_equal [], @b_shift.incoming_chars
+
+    @main_shift.disperse_message
+
+    assert_equal [["e", 4], [" ", 26], ["l", 11]], @b_shift.incoming_chars
+  end
+
+  def test_it_can_run_its_shift
+    @main_shift.disperse_message
+
+    assert_equal ["e", " ", "l"], @b_shift.run_shift
+    assert_equal ["e", " ", "l"], @b_shift.outgoing_chars
   end
 end

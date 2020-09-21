@@ -2,7 +2,7 @@ require './test/test_helper'
 
 class CShiftTest < Minitest::Test
   def setup
-    @main_shift = Shift.new("12345", "091920")
+    @main_shift = Shift.new("hello world", "12345", "091920")
     @c_shift = @main_shift.c_shift
   end
 
@@ -30,5 +30,20 @@ class CShiftTest < Minitest::Test
 
     assert_equal expected, @c_shift.shift_alphabet
     assert_equal expected, @c_shift.shifted_alpha
+  end
+
+  def test_it_can_get_incoming_characters
+    assert_equal [], @c_shift.incoming_chars
+
+    @main_shift.disperse_message
+
+    assert_equal [["l", 11], ["w", 22], ["d", 3]], @c_shift.incoming_chars
+  end
+
+  def test_it_can_run_its_shift
+    @main_shift.disperse_message
+
+    assert_equal ["s", "c", "k"], @c_shift.run_shift
+    assert_equal ["s", "c", "k"], @c_shift.outgoing_chars
   end
 end

@@ -6,4 +6,8 @@ module Shiftable
   def shift_alphabet
     (("a".."z").to_a << " ").rotate(shift_value)
   end
+
+  def run_shift
+    @outgoing_chars = @incoming_chars.map { |char| @shifted_alpha[char[1]] }
+  end
 end
