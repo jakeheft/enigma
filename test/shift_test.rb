@@ -33,7 +33,7 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_can_generate_a_5_digit_key_that_will_not_change
-    main_shift = Shift.new("hello world", "12345", "091920")
+    main_shift = Shift.new("hello world")
     expected = main_shift.key
 
     assert_equal 5, main_shift.key.length
@@ -89,7 +89,7 @@ class ShiftTest < Minitest::Test
     main_shift = Shift.new("hello world", "12345", "091920")
 
     assert_equal "", main_shift.ciphertext
-    
+
     main_shift.disperse_message
     main_shift.run_shifts  ###??? (should this be done by the other method?)
 

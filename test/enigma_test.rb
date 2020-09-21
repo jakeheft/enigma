@@ -14,4 +14,15 @@ class EnigmaTest < Minitest::Test
     assert_equal "12345", enigma.key
     assert_equal "091920", enigma.date
   end
+
+  def test_it_can_generate_a_5_digit_key_that_will_not_change
+    enigma = Enigma.new("hello world")
+    expected = enigma.key
+
+    assert_equal 5, enigma.key.length
+
+    enigma.generate_key
+
+    assert_equal expected, enigma.key
+  end
 end
