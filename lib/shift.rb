@@ -68,4 +68,10 @@ class Shift
     end
     @ciphertext = shifted_chars.compact.join
   end
+
+  def reinsert_special_chars
+    @special_chars.each do |char|
+      @ciphertext.insert(char[1], char[0])
+    end
+  end
 end
