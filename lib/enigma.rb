@@ -1,11 +1,12 @@
 class Enigma
-  attr_reader :message, :key, :date
+  attr_reader :message, :key, :date, :encryption
 
   def initialize(message, key = generate_key, date)
     @message = message
     @key = key
     @date = date
     @main_shift = Shift.new(@message, @key)
+    @encryption = @main_shift.ciphertext
   end
 
   def generate_key
@@ -15,11 +16,7 @@ class Enigma
   def encrypt(message, key, date)
     @main_shift.disperse_message
     @main_shift.run_shifts
-    @main_shift.compile_shifts
-    encrypt = {
-      encryption: @main_shift.ciphertext,
-      key: @key,
-      date: @date
-    }
+    @encryption = @main_shift.compile_shifts
+    {encryption: @main_shift.ciphertext, key: @key, date: @date}
   end
 end
