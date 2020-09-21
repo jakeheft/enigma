@@ -46,4 +46,15 @@ class BShiftTest < Minitest::Test
     assert_equal ["e", " ", "l"], @b_shift.run_shift
     assert_equal ["e", " ", "l"], @b_shift.outgoing_chars
   end
+
+  def test_run_decrypt_shift
+    main_shift = Shift.new("zescf cfilk", "12345", "091920")
+    b_shift = main_shift.b_shift
+
+    main_shift.disperse_message
+
+    assert_equal [["e", 4], [" ", 26], ["l", 11]], b_shift.incoming_chars
+    assert_equal ["e", " ", "l"], b_shift.run_decrypt_shift
+    assert_equal ["e", " ", "l"], b_shift.outgoing_chars
+  end
 end
