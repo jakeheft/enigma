@@ -94,4 +94,12 @@ class ShiftTest < Minitest::Test
     assert_equal expected, main_shift.compile_shifts
   end
 
+  def test_it_can_produce_an_encryption
+    main_shift = Shift.new("hello world", "12345", "091920")
+    main_shift.disperse_message
+    main_shift.run_shifts
+
+    assert_equal "zescf cfilk", main_shift.ciphertext
+  end
+
 end
