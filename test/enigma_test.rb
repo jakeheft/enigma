@@ -39,4 +39,11 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.encrypt(enigma.message, enigma.key, enigma.date)
     assert_equal "zescf cfilk", enigma.encryption
   end
+
+  def test_it_can_run_shifts_to_get_encrypted_string_with_special_characters
+    enigma = Enigma.new("hello, world!", "12345", "091920")
+
+    enigma.encrypt(enigma.message, enigma.key, enigma.date)
+    assert_equal "zescf, cfilk!", enigma.encryption
+  end
 end
