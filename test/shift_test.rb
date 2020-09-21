@@ -32,16 +32,6 @@ class ShiftTest < Minitest::Test
     assert_equal "hello world", main_shift.message
   end
 
-  def test_it_can_generate_a_5_digit_key_that_will_not_change
-    main_shift = Shift.new("hello world")
-    expected = main_shift.key
-
-    assert_equal 5, main_shift.key.length
-
-    main_shift.generate_key
-
-    assert_equal expected, main_shift.key
-  end
 ### PUT IN A TEST FOR PULLING THE DATE WHEN YOU'VE FIGURED IT OUT
   def test_it_can_get_the_date_for_the_shift
     main_shift = Shift.new("hello world", "12345", "091920")
@@ -55,9 +45,6 @@ class ShiftTest < Minitest::Test
   def test_it_can_pair_characters_with_values
     main_shift = Shift.new("hello world", "12345", "091920")
 
-    # look at how to return the position of a letter in an array (find_index(obj))
-    # run a map that creates an array of arrays with letter in 0 index and letter-index at 1 index
-    # then inside each subclass, you will use that index and just pull the value that exists at the index
     expected = ["h", 7]
     assert_equal expected, main_shift.char_values[0]
   end
