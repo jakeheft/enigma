@@ -1,8 +1,9 @@
 class Shift
-  attr_reader :alpha, :message, :key, :date, :a_shift, :b_shift, :c_shift, :d_shift, :ciphertext
+  attr_reader :alpha, :special_chars, :message, :key, :date, :a_shift, :b_shift, :c_shift, :d_shift, :ciphertext
   ### FIGURE OUT HOW TO INCORPORATE TODAYS DATE
   def initialize(message, key = generate_key, date = "091920")
     @alpha = ("a".."z").to_a << " "
+    @special_chars = []
     @message = message
     @key = key
     @date = date
@@ -22,11 +23,20 @@ class Shift
     date_squared = (@date.to_i ** 2).to_s
     @date_shift = (date_squared[-4..-1])
   end
-  ### before dispersing, need to check for special characters, document position and then remove them. Build this as a helper method, then call that method inside disperse_message
+
+  def stash_special_chars
+    counter = 0
+    @message.chars.each do |char|
+      if !@alpha.include?(char)
+        @special_chars << [char, counter]
+      end
+      counter += 1
+    end
+    @message.chars.select { |char| @alpha.include?(char) }
+  end
 
   def char_values
-    separated_characters = @message.chars
-    test = separated_characters.map do |character|
+    stash_special_chars.map do |character|
       [character] << @alpha.find_index(character)
     end
   end
