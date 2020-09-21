@@ -39,7 +39,6 @@ class Shift
       (@d_shift.incoming_chars << chars_with_values.shift).compact!
       @char_counter += 1
     end
-    # require "pry"; binding.pry
   end
 
   def run_shifts
@@ -48,12 +47,14 @@ class Shift
    end
  end
 
-  # def run_shifts
-  #   shifted_chars = []
-  #   @char_counter.times do
-  #     require "pry"; binding.pry
-  #     shifted_chars << @a_shift.outgoing_chars.shift
-  #   end
-  #   shifted_chars
-  # end
+  def compile_shifts
+    shifted_chars = []
+    @char_counter.times do
+      shifted_chars << @a_shift.outgoing_chars.shift
+      shifted_chars << @b_shift.outgoing_chars.shift
+      shifted_chars << @c_shift.outgoing_chars.shift
+      shifted_chars << @d_shift.outgoing_chars.shift
+    end
+    shifted_chars.compact
+  end
 end
