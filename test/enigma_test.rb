@@ -25,4 +25,10 @@ class EnigmaTest < Minitest::Test
 
     assert_equal expected, enigma.key
   end
+
+  def test_it_can_encrypted_string
+    enigma = Enigma.new("hello world", "12345", "091920")
+
+    assert_equal "zescf cfilk", enigma.encrypted_string
+  end
 end
