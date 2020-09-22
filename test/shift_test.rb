@@ -33,7 +33,6 @@ class ShiftTest < Minitest::Test
     assert_equal "hello world", main_shift.message
   end
 
-### PUT IN A TEST FOR PULLING THE DATE WHEN YOU'VE FIGURED IT OUT
   def test_it_can_get_the_date_for_the_shift
     main_shift = Shift.new("hello world", "12345", "091920")
 
@@ -42,7 +41,7 @@ class ShiftTest < Minitest::Test
     main_shift.stubs(:date).returns("091920")
     assert_equal "6400", main_shift.date_shift_all
   end
-  ### When all letter shifts built, create collection with each so they can be run through enumerable
+  
   def test_it_can_pair_characters_with_values
     main_shift = Shift.new("hello world", "12345", "091920")
 
