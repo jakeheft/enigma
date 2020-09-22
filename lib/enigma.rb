@@ -18,6 +18,14 @@ class Enigma
     @main_shift.run_shifts
     @encryption = @main_shift.compile_shifts
     @main_shift.reinsert_special_chars
-    {encryption: @main_shift.ciphertext, key: @key, date: @date}
+    {encryption: @encryption, key: @key, date: @date}
+  end
+
+  def decrypt(message = @message, key = @key, date = @date)
+    @main_shift.disperse_message
+    @main_shift.run_decryption_shifts
+    @encryption = @main_shift.compile_shifts
+    @main_shift.reinsert_special_chars
+    {decryption: @encryption, key: @key, date: @date}
   end
 end

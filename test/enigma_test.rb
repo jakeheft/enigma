@@ -46,4 +46,15 @@ class EnigmaTest < Minitest::Test
     enigma.encrypt(enigma.message, enigma.key, enigma.date)
     assert_equal "zescf, cfilk!", enigma.encryption
   end
+
+  def test_it_can_decrypt
+    enigma = Enigma.new("zescf, cfilk!", "12345", "091920")
+
+    expected = {
+      decryption: "hello, world!",
+      key:  "12345",
+      date: "091920"
+    }
+    assert_equal expected, enigma.decrypt(enigma.message, enigma.key, enigma.date)
+  end
 end
