@@ -4,9 +4,9 @@ handle = File.open(ARGV[0], "r")
 
 message = (handle.read).downcase
 
-enigma = Enigma.new(message, "12345", "091920")
+enigma = Enigma.new(message)
 
-enigma.encrypt(message, "12345", "091920")
+enigma.encrypt(message)
 handle.close
 
 writer = File.open(ARGV[1], "w")
