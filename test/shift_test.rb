@@ -103,4 +103,16 @@ class ShiftTest < Minitest::Test
 
     assert_equal "zescf, cfilk!", main_shift.ciphertext
   end
+
+  def test_it_can_run_decryption_shifts
+    main_shift = Shift.new("zescf cfilk", "12345", "091920")
+
+    main_shift.disperse_message
+    main_shift.run_decryption_shifts
+
+    assert_equal ["h", "o", "r"], main_shift.a_shift.outgoing_chars
+    assert_equal ["e", " ", "l"], main_shift.b_shift.outgoing_chars
+    assert_equal ["l", "w", "d"], main_shift.c_shift.outgoing_chars
+    assert_equal ["l", "o"], main_shift.d_shift.outgoing_chars
+  end
 end
