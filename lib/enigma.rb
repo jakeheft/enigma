@@ -23,7 +23,7 @@ class Enigma
 
   def decrypt(message = @message, key = @key, date = @date)
     @main_shift.disperse_message
-    @main_shift.run_shifts
+    @main_shift.run_decryption_shifts
     @encryption = @main_shift.compile_shifts
     @main_shift.reinsert_special_chars
     {decryption: @encryption, key: @key, date: @date}
