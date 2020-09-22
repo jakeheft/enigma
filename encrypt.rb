@@ -4,7 +4,7 @@ handle = File.open(ARGV[0], "r")
 
 message = (handle.read).downcase
 
-enigma = Enigma.new(message)
+enigma = Enigma.new
 
 enigma.encrypt(message)
 handle.close
