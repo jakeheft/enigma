@@ -1,6 +1,6 @@
 module Shiftable
   def shift_value
-    (key_shift.to_i + date_shift.to_i)#.-@
+    (key_shift.to_i + date_shift.to_i)
   end
 
   def shift_alphabet

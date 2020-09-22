@@ -26,14 +26,16 @@ class CShiftTest < Minitest::Test
   end
 
   def test_it_can_get_shifted_alphabet
-    expected = ["h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g"]
+    expected = ["h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
+      "u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g"]
 
     assert_equal expected, @c_shift.shift_alphabet
     assert_equal expected, @c_shift.shifted_alpha
   end
 
   def test_it_can_get_cs_decrypted_shifted_alphabet
-    expected = ["u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t"]
+    expected = ["u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f",
+      "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t"]
 
     assert_equal expected, @c_shift.decrypt_shift_alphabet
     assert_equal expected, @c_shift.decrypt_shifted_alpha
