@@ -3,32 +3,22 @@ require 'date'
 
 class EnigmaTest < Minitest::Test
   def test_it_exists
-    enigma = Enigma.new("hello world", "12345", "091920")
+    enigma = Enigma.new
 
     assert_instance_of Enigma, enigma
   end
 
-  def test_it_has_attributes
-    enigma = Enigma.new("hello world", "12345", "091920")
-
-    assert_equal "hello world", enigma.message
-    assert_equal "12345", enigma.key
-    assert_equal "091920", enigma.date
-  end
-
   def test_it_can_generate_a_5_digit_key_that_will_not_change
-    enigma = Enigma.new("hello world")
-    expected = enigma.key
+    enigma = Enigma.new
 
-    assert_equal 5, enigma.key.length
+    enigma.stubs(:rand).returns(349)
 
-    enigma.generate_key
-
-    assert_equal expected, enigma.key
+    assert_equal 5, enigma.generate_key.length
+    assert_equal "00349", enigma.key
   end
 
   def test_it_can_run_shifts_to_get_encrypted_string
-    enigma = Enigma.new("hello world", "12345", "091920")
+    enigma = Enigma.new
 
     assert_equal "", enigma.encryption
 
@@ -37,33 +27,32 @@ class EnigmaTest < Minitest::Test
       key:  "12345",
       date: "091920"
     }
-    assert_equal expected, enigma.encrypt(enigma.message, enigma.key, enigma.date)
+    assert_equal expected, enigma.encrypt("hello world", "12345", "091920")
     assert_equal "zescf cfilk", enigma.encryption
   end
 
   def test_it_can_run_shifts_to_get_encrypted_string_with_special_characters
-    enigma = Enigma.new("hello, world!", "12345", "091920")
+    enigma = Enigma.new
 
-    enigma.encrypt(enigma.message, enigma.key, enigma.date)
+    enigma.encrypt("hello, world!", "12345", "091920")
     assert_equal "zescf, cfilk!", enigma.encryption
   end
 
   def test_it_can_decrypt
-    enigma = Enigma.new("zescf, cfilk!", "12345", "091920")
+    enigma = Enigma.new
 
     expected = {
       decryption: "hello, world!",
       key:  "12345",
       date: "091920"
     }
-    assert_equal expected, enigma.decrypt(enigma.message, enigma.key, enigma.date)
+    assert_equal expected, enigma.decrypt("zescf, cfilk!", "12345", "091920")
   end
 
   def test_it_can_get_todays_date
-    enigma = Enigma.new("hello world")
+    enigma = Enigma.new
     date = DateTime.now
-    expected = date.strftime("%m%d%y")
-    
-    assert_equal expected, enigma.date
+    expected = date.strftime("%d%m%y")
+    assert_equal expected, enigma.get_date
   end
 end
