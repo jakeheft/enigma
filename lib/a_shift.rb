@@ -10,7 +10,7 @@ class AShift < Shift
     @shifted_alpha = shift_alphabet
     @decrypt_shifted_alpha = decrypt_shift_alphabet
     @incoming_chars = []
-    @outgoing_chars = [] ### keep an eye on this - will map turn this into an array inside an array?
+    @outgoing_chars = []
   end
 
   def key_shift
