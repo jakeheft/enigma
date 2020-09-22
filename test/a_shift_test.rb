@@ -26,10 +26,18 @@ class AShiftTest < Minitest::Test
   end
 
   def test_it_can_get_shifted_alphabet
-    expected = ["s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r"]
+    expected = ["s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d",
+      "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r"]
 
     assert_equal expected, @a_shift.shift_alphabet
     assert_equal expected, @a_shift.shifted_alpha
+  end
+
+  def test_it_can_get_decrypted_shifted_alphabet
+    expected = ["j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+      "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i"]
+    assert_equal expected, @a_shift.decrypt_shift_alphabet
+    assert_equal expected, @a_shift.decrypt_shifted_alpha
   end
 
   def test_it_can_get_incoming_characters
@@ -45,5 +53,16 @@ class AShiftTest < Minitest::Test
 
     assert_equal ["z", "f", "i"], @a_shift.run_shift
     assert_equal ["z", "f", "i"], @a_shift.outgoing_chars
+  end
+
+  def test_run_decrypt_shift
+    main_shift = Shift.new("zescf cfilk", "12345", "091920")
+    a_shift = main_shift.a_shift
+
+    main_shift.disperse_message
+
+    assert_equal [["z", 25], ["f", 5], ["i", 8]], a_shift.incoming_chars
+    assert_equal ["h", "o", "r"], a_shift.run_decrypt_shift
+    assert_equal ["h", "o", "r"], a_shift.outgoing_chars
   end
 end
