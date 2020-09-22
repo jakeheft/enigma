@@ -79,7 +79,7 @@ class ShiftTest < Minitest::Test
     assert_equal "", main_shift.ciphertext
 
     main_shift.disperse_message
-    main_shift.run_shifts  ###??? (should this be done by the other method?)
+    main_shift.run_shifts
 
     assert_equal "zescf cfilk", main_shift.compile_shifts
     assert_equal "zescf cfilk", main_shift.ciphertext
