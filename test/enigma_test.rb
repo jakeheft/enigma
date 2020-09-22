@@ -1,4 +1,5 @@
 require './test/test_helper'
+require 'date'
 
 class EnigmaTest < Minitest::Test
   def test_it_exists
@@ -16,7 +17,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_generate_a_5_digit_key_that_will_not_change
-    enigma = Enigma.new("hello world", "091920")
+    enigma = Enigma.new("hello world")
     expected = enigma.key
 
     assert_equal 5, enigma.key.length
@@ -56,5 +57,13 @@ class EnigmaTest < Minitest::Test
       date: "091920"
     }
     assert_equal expected, enigma.decrypt(enigma.message, enigma.key, enigma.date)
+  end
+
+  def test_it_can_get_todays_date
+    enigma = Enigma.new("hello world")
+    date = DateTime.now
+    expected = date.strftime("%m%d%y")
+    
+    assert_equal expected, enigma.date
   end
 end
