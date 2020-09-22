@@ -32,13 +32,12 @@ class CShiftTest < Minitest::Test
     assert_equal expected, @c_shift.shifted_alpha
   end
 
-  ## I am purposely leaving this test here as something bizarre is happening with it
-  # def test_it_can_get_cs_decrypted_shifted_alphabet
-  #   expected = ["o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n"]
-  #
-  #   assert_equal expected, @c_shift.decrypt_shift_alphabet
-  #   assert_equal expected, @c_shift.decrypt_shifted_alpha
-  # end
+  def test_it_can_get_cs_decrypted_shifted_alphabet
+    expected = ["u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t"]
+
+    assert_equal expected, @c_shift.decrypt_shift_alphabet
+    assert_equal expected, @c_shift.decrypt_shifted_alpha
+  end
 
   def test_it_can_get_incoming_characters
     assert_equal [], @c_shift.incoming_chars
