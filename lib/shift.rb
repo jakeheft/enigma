@@ -1,7 +1,6 @@
 class Shift
   attr_reader :alpha, :special_chars, :message, :key, :date, :a_shift, :b_shift, :c_shift, :d_shift, :ciphertext
-  ### FIGURE OUT HOW TO INCORPORATE TODAYS DATE
-  def initialize(message, key, date = "091920")
+  def initialize(message, key, date)
     @alpha = ("a".."z").to_a << " "
     @special_chars = []
     @message = message
@@ -34,7 +33,7 @@ class Shift
       [char] << @alpha.find_index(char)
     end
   end
-### refactoring potential instead of calling each of these individually in disperse_message and run_shifts (and compile_shifts), set each subclass instance variable to an array and run an enumerable on them
+
   def disperse_message
     chars_with_values = char_values
     until chars_with_values.empty?
