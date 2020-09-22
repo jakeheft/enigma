@@ -32,6 +32,13 @@ class CShiftTest < Minitest::Test
     assert_equal expected, @c_shift.shifted_alpha
   end
 
+  def test_it_can_get_cs_decrypted_shifted_alphabet
+    expected = ["u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t"]
+
+    assert_equal expected, @c_shift.decrypt_shift_alphabet
+    assert_equal expected, @c_shift.decrypt_shifted_alpha
+  end
+
   def test_it_can_get_incoming_characters
     assert_equal [], @c_shift.incoming_chars
 
@@ -45,5 +52,16 @@ class CShiftTest < Minitest::Test
 
     assert_equal ["s", "c", "k"], @c_shift.run_shift
     assert_equal ["s", "c", "k"], @c_shift.outgoing_chars
+  end
+
+  def test_run_decrypt_shift
+    main_shift = Shift.new("zescf cfilk", "12345", "091920")
+    c_shift = main_shift.c_shift
+
+    main_shift.disperse_message
+
+    assert_equal [["s", 18], ["c", 2], ["k", 10]], c_shift.incoming_chars
+    assert_equal ["l", "w", "d"], c_shift.run_decrypt_shift
+    assert_equal ["l", "w", "d"], c_shift.outgoing_chars
   end
 end

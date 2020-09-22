@@ -68,4 +68,10 @@ class Shift
       @ciphertext.insert(char[1], char[0])
     end
   end
+
+  def run_decryption_shifts
+    [@a_shift, @b_shift, @c_shift, @d_shift].each do |shift|
+      shift.run_decrypt_shift
+    end
+  end
 end
